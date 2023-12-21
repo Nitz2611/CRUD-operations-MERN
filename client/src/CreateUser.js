@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateUser() {
 
@@ -9,13 +9,14 @@ export default function CreateUser() {
     const [age, setAge] = useState()
     const navigate = useNavigate()
 
-    const Submit = (e) =>{
+    const Submit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/createUser", {name, email, age})
-        .then(result => {
-            console.log(result)
-            navigate('/')})
-        .catch(err => console.log(err))
+        axios.post("http://localhost:3001/createUser", { name, email, age })
+            .then(result => {
+                console.log(result)
+                navigate('/')
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -26,17 +27,17 @@ export default function CreateUser() {
                     <div className="mb2">
                         <label htmlFor="">Name</label>
                         <input type="text" placeholder='Enter Name' className='form-control'
-                        onChange={(e) => setName(e.target.value)} />
+                            onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className="mb2">
                         <label htmlFor="">Email</label>
                         <input type="email" placeholder='Enter Email' className='form-control'
-                        onChange={(e) => setEmail(e.target.value)} />
+                            onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="mb2">
                         <label htmlFor="">Age</label>
                         <input type="number" placeholder='Enter Age' className='form-control'
-                        onChange={(e) => setAge(e.target.value)} />
+                            onChange={(e) => setAge(e.target.value)} />
                     </div>
                     <button type="submit" className="btn btn-success mt-2">Create</button>
                 </form>
