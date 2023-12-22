@@ -9,7 +9,7 @@ export default function UpdateUser() {
     const [email, setEmail] = useState()
     const [age, setAge] = useState()
     const navigate = useNavigate()
-
+// updating user
     useEffect(() => {
         axios.get('http://localhost:3001/getUser/' + id)
             .then(result => {
